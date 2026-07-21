@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ARC — Apple Premium Reseller Colombia
 
-## Getting Started
+Sitio de una sola página construido con Next.js 15 (App Router), Tailwind CSS,
+Framer Motion y Lenis. El hero es una secuencia de 193 frames pre-renderizados
+que se dibujan en un `<canvas>` y se controlan directamente con el scroll.
 
-First, run the development server:
+## Desarrollo local
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build de producción
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+## Deploy en Vercel
 
-To learn more about Next.js, take a look at the following resources:
+1. Sube este repositorio a GitHub, GitLab o Bitbucket.
+2. En [vercel.com/new](https://vercel.com/new), importa el repositorio.
+3. Vercel detecta Next.js automáticamente — no se necesita configuración
+   adicional (build command, output directory e install command quedan
+   por defecto).
+4. Deploy.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+También puedes desplegar directamente desde la terminal con la
+[Vercel CLI](https://vercel.com/docs/cli):
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm i -g vercel
+vercel
+```
 
-## Deploy on Vercel
+### Notas
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- No hay variables de entorno requeridas.
+- Las imágenes del hero (`public/frames`, ~40 MB) y de producto
+  (`public/products`) se sirven como assets estáticos de Next.js.
+- Node.js >= 20 (ver `engines` en `package.json`).
