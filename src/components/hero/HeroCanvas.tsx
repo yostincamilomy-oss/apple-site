@@ -26,7 +26,10 @@ export default function HeroCanvas({ progress }: { progress: MotionValue<number>
       const bmp = getFrame(index);
       if (!bmp) return;
 
-      const scale = Math.max(width / FRAME_WIDTH, height / FRAME_HEIGHT);
+      // "contain" fit — the studio background matches the page background
+      // exactly, so letterboxing is invisible, and the character is never
+      // cropped regardless of viewport aspect ratio.
+      const scale = Math.min(width / FRAME_WIDTH, height / FRAME_HEIGHT);
       const drawWidth = FRAME_WIDTH * scale;
       const drawHeight = FRAME_HEIGHT * scale;
       const dx = (width - drawWidth) / 2;
